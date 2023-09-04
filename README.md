@@ -2,7 +2,7 @@
 This repository contains the projects that I have done in my IOT course. The projects are done using Arduino Uno and the simulation is done using Proteus 8 Professional.
 
 
-# 1️⃣ Project Title: Validator
+# 1️⃣ Project Title:- Validator
 # Circuit Diagram in Proteus:
 
 ![Circuit Diagram in Proteus](https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/1a9afc9c-b315-4a11-9621-8e28226c3ba8)
