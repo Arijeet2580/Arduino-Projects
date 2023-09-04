@@ -4,6 +4,7 @@ This repository contains the projects that I have done in my IOT course. The pro
 # 1️⃣ Project Title: Validator
 # Circuit Diagram inside the Proteus 8 Professional Software
 
+![Circuit Diagram in Proteus](https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/1a9afc9c-b315-4a11-9621-8e28226c3ba8)
 
 # Project Description:
 This Project is about a simple validator that checks the validity of the username and password given by the user.
@@ -26,7 +27,7 @@ By using a relay and a solenoid lock, We can create a door lock system that can 
 
 # Project Video
 
-
+https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/c4cbb5c2-00f0-4ba5-a622-883f81552579
 ## Issues and PRs
 
 If you have suggestions for how this project could be improved, or want to report a bug, open an issue! We'd love all and any contributions. If you have questions, too, we'd love to hear them.
