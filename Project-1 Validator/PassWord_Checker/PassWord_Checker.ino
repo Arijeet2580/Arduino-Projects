@@ -1,7 +1,7 @@
 String password = "mango" ;
 String userName= "mangoboy";
-int ledRed=13;
-int ledGreen=11;
+byte ledRed=13;
+byte ledGreen=11;
 void setup() {
   // put your setup code here, to run once:
   pinMode(ledRed,OUTPUT);
