@@ -14,6 +14,20 @@ if the username and password are correct led Green will glow and if the username
 This project can physically be implemented in a door lock system.
 By using a relay and a solenoid lock, We can create a door lock system that can be unlocked by entering the correct username and password.
 
+# 2️⃣ Project Title:- Water Level Detector
+
+# Project Description:
+This project  Ultrasonic sensor is used to detect the water level in the tank. This project prevents the overflow of water from the tank.It has a range of real life applications such as in the water tank of our house, in the water tank of our car, etc. 
+
+* If the Water level is below Threshold value then the motor will turn On 
+* If the water level is above the threshold value then the motor will turn Off.
+ * The Turn On and Turn Off of the motor is indicated by the led.
+
+
+
+# Sensor Used:
+`1. Ultrasonic Sensor`
+
 # Hardware and Software Requirements:
 ## Hardware Requirements:
 1. Arduino Uno
