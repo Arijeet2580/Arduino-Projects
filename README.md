@@ -26,6 +26,11 @@ This project  Ultrasonic sensor is used to detect the water level in the tank. T
 # Circuit Diagram in TinkerCAD
 ![image](https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/b6c8a56c-5df3-4159-9ce9-82e00ce56630)
 
+# Project Working video:
+ 
+
+https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/42a03e88-f524-4ba9-bb47-4d6bd604bdbf
+
 
 # Sensor Used:
 `1. Ultrasonic Sensor`
