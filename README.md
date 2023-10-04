@@ -1,44 +1,33 @@
 # ARDUINO PROJECTS
-This repository contains the projects that I have done in my IOT course. The projects are done using Arduino Uno and the simulation is done using Proteus 8 Professional.
+
+## Introduction
+
+This repository contains all the Arduino Projects that I have done. These projects are based on Arduino Uno and are implemented on Proteus 8 Professional and Tinkercad.
+
+## Table of Contents
+
+1. [Projects](#projects)
+2. [Hardware and Software Requirements](#hardware-and-software-requirements)
+3. [Issues and PRs](#issues-and-prs)
+4. [How to Contribute](#how-to-contribute)
+5. [How to make a Pull Request](#how-to-make-a-pull-request)
+
+## Projects
+
+1. Validator using Serial Monitor
+2. Water Level Detector
+3. Gas Leak Detector
+4. Temperature Sensor using LM35
 
 
-# 1️⃣ Project Title:- Validator
-# Circuit Diagram in Proteus:
-
-![Circuit Diagram in Proteus](https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/1a9afc9c-b315-4a11-9621-8e28226c3ba8)
-
-# Project Video
-https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/c4cbb5c2-00f0-4ba5-a622-883f81552579
-
-# Project Description:
-This Project is about a simple validator that checks the validity of the username and password given by the user.
-if the username and password are correct led Green will glow and if the username and password are incorrect led Red will glow.
-# This project can physically be implemented in a door lock system.
-By using a relay and a solenoid lock, We can create a door lock system that can be unlocked by entering the correct username and password.
-
-# 2️⃣ Project Title:- Water Level Detector
-
-# Project Description:
-This project  Ultrasonic sensor is used to detect the water level in the tank. This project prevents the overflow of water from the tank.It has a range of real life applications such as in the water tank of our house, in the water tank of our car, etc. 
-
-* If the Water level is below Threshold value then the motor will turn On 
-* If the water level is above the threshold value then the motor will turn Off.
- * The Turn On and Turn Off of the motor is indicated by the led.
-
-# Circuit Diagram in TinkerCAD
-![image](https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/b6c8a56c-5df3-4159-9ce9-82e00ce56630)
-
-# Project Working video:
- https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/42a03e88-f524-4ba9-bb47-4d6bd604bdbf
-# Sensor Used:
-`1. Ultrasonic Sensor`
 # Hardware and Software Requirements:
+We require the following hardware and software to implement the projects.
+We also need a deep understanding of Sensor and their Working.
 ## Hardware Requirements:
 1. Arduino Uno
 2. BreadBoard
 3. Jumper Wires
-4. Led
-5. Resistor
+
 ## Software Requirements:
 1. Arduino IDE
 2. Proteus 8 Professional
