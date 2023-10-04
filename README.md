@@ -13,11 +13,27 @@ This repository contains all the Arduino Projects that I have done. These projec
 5. [How to make a Pull Request](#how-to-make-a-pull-request)
 
 ## Projects
-1. [PassWord Validator using Serial Monitor](https://github.com/Arijeet2580/Arduino-Projects/tree/main/Project-1%20Validator)
-2. [Water Level Detector](https://github.com/Arijeet2580/Arduino-Projects/tree/main/Project-2_Water_Level_Detetor)
-3.  [Gas Leak Alarm System](https://github.com/Arijeet2580/Arduino-Projects/tree/main/Project3_Gas_leak_Alarm_System/Gas_Leak_Alarm)
+1. PassWord Validator using Serial Monitor
+2. Water Level Detector
+3. Gas Leak Alarm System
 
-
+## Upcoming Projects
+4. Temperature Monitor
+5. Digital Dice
+6. Light Activated Alarm
+7. Sound Activated Light
+8. Temperature Controlled Fan
+9. Digital Thermometer
+10. IR Remote Control
+11. Arduino Music Player
+12. Morse Code Transmitter
+13. Mini Weather Station
+14. Tilt Activated Game
+15. Digital Clock
+16. RGB Color Mixer
+17. Data Logger
+18. Establish Wireless Data Communication in Each Projects
+19. 
 # Hardware and Software Requirements:
 We require the following hardware and software to implement the projects.
 We also need a deep understanding of Sensor and their Working.
