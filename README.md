@@ -16,9 +16,9 @@ This repository contains all the Arduino Projects that I have done. These projec
 1. PassWord Validator using Serial Monitor
 2. Water Level Detector
 3. Gas Leak Alarm System
+4. Temperature Monitor
 
 ## Upcoming Projects
-4. Temperature Monitor
 5. Digital Dice
 6. Light Activated Alarm
 7. Sound Activated Light
