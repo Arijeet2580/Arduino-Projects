@@ -7,11 +7,13 @@ This repository contains the projects that I have done in my IOT course. The pro
 
 ![Circuit Diagram in Proteus](https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/1a9afc9c-b315-4a11-9621-8e28226c3ba8)
 
+# Project Video
+https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/c4cbb5c2-00f0-4ba5-a622-883f81552579
+
 # Project Description:
 This Project is about a simple validator that checks the validity of the username and password given by the user.
 if the username and password are correct led Green will glow and if the username and password are incorrect led Red will glow.
-#
-This project can physically be implemented in a door lock system.
+# This project can physically be implemented in a door lock system.
 By using a relay and a solenoid lock, We can create a door lock system that can be unlocked by entering the correct username and password.
 
 # 2️⃣ Project Title:- Water Level Detector
@@ -27,14 +29,9 @@ This project  Ultrasonic sensor is used to detect the water level in the tank. T
 ![image](https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/b6c8a56c-5df3-4159-9ce9-82e00ce56630)
 
 # Project Working video:
- 
-
-https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/42a03e88-f524-4ba9-bb47-4d6bd604bdbf
-
-
+ https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/42a03e88-f524-4ba9-bb47-4d6bd604bdbf
 # Sensor Used:
 `1. Ultrasonic Sensor`
-
 # Hardware and Software Requirements:
 ## Hardware Requirements:
 1. Arduino Uno
@@ -46,10 +43,6 @@ https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/42a03e88-f524-4
 1. Arduino IDE
 2. Proteus 8 Professional
 3. Tinkercad
-
-# Project Video
-
-https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/c4cbb5c2-00f0-4ba5-a622-883f81552579
 ## Issues and PRs
 
 If you have suggestions for how this project could be improved, or want to report a bug, open an issue! We'd love all and any contributions. If you have questions, too, we'd love to hear them.
