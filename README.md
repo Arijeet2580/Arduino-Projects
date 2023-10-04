@@ -13,11 +13,9 @@ This repository contains all the Arduino Projects that I have done. These projec
 5. [How to make a Pull Request](#how-to-make-a-pull-request)
 
 ## Projects
-
-1. Validator using Serial Monitor
-2. Water Level Detector
-3. Gas Leak Detector
-4. Temperature Sensor using LM35
+1. [PassWord Validator using Serial Monitor](https://github.com/Arijeet2580/Arduino-Projects/tree/main/Project-1%20Validator)
+2. [Water Level Detector](https://github.com/Arijeet2580/Arduino-Projects/tree/main/Project-2_Water_Level_Detetor)
+3.  [Gas Leak Alarm System](https://github.com/Arijeet2580/Arduino-Projects/tree/main/Project3_Gas_leak_Alarm_System/Gas_Leak_Alarm)
 
 
 # Hardware and Software Requirements:
