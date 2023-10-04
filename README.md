@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository contains all the Arduino Projects that I have done. These projects are based on Arduino Uno and are implemented on Proteus 8 Professional and Tinkercad.
+This repository contains all the Arduino Projects that I have done. These projects are based on Arduino Uno and are implemented on Proteus 8 Professional and Tinkercad
 
 ## Table of Contents
 
