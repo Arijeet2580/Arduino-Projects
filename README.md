@@ -17,9 +17,9 @@ This repository contains all the Arduino Projects that I have done. These projec
 2. Water Level Detector
 3. Gas Leak Alarm System
 4. Temperature Monitor
+5. Digital Dice 
 
 ## Upcoming Projects
-5. Digital Dice
 6. Light Activated Alarm
 7. Sound Activated Light
 8. Temperature Controlled Fan
@@ -33,7 +33,11 @@ This repository contains all the Arduino Projects that I have done. These projec
 16. RGB Color Mixer
 17. Data Logger
 18. Establish Wireless Data Communication in Each Projects
-19. 
+
+# Wireless Communication
+- Bluetooth Communication (HC05/HC06)
+- 
+-  
 # Hardware and Software Requirements:
 We require the following hardware and software to implement the projects.
 We also need a deep understanding of Sensor and their Working.
