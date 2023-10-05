@@ -8,4 +8,6 @@ By the use of Random() Function, we can get a number from the min to (max-1). We
 
 ```
     int num = random(1, 7);
+    Serial.println(num);
 ```
+
