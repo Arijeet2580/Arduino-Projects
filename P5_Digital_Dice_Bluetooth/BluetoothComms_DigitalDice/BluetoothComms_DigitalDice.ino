@@ -9,7 +9,7 @@ void setup() {
   Serial.begin(9600);
   bt.begin(9600);
 }
-String msgBuffer = "";
+String msgBuffer = " ";
 String msg ="";
 char data="";
 void loop() {
@@ -17,7 +17,6 @@ void loop() {
   
   while(bt.available() == 0){}
   char Data = (char) bt.read(); // Break the incoming data into bits
-  msgBuffer +=Data;
   if(data == ';'){
     msg=msgBuffer;
     msgBuffer=" ";//Clears the message Buffer for new Data
@@ -27,4 +26,5 @@ void loop() {
     int num = random(1,7);
     bt.println(num);
   }
+  msgBuffer +=Data;
 }
