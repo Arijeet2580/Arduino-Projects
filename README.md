@@ -17,10 +17,11 @@ This repository contains all the Arduino Projects that I have done. These projec
 2. Water Level Detector
 3. Gas Leak Alarm System
 4. Temperature Monitor
-5. Digital Dice 
+5. Digital Dice
+6.Light Activated Alarm
+7. RGB Color Mixer
 
 ## Upcoming Projects
-6. Light Activated Alarm
 7. Sound Activated Light
 8. Temperature Controlled Fan
 9. Digital Thermometer
@@ -30,7 +31,6 @@ This repository contains all the Arduino Projects that I have done. These projec
 13. Mini Weather Station
 14. Tilt Activated Game
 15. Digital Clock
-16. RGB Color Mixer
 17. Data Logger
 18. Establish Wireless Data Communication in Each Projects
 
