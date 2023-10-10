@@ -12,3 +12,7 @@ And add
     bluetooth.begin(9600);
 ```
 Switch every Serial object with bluetooth object.
+
+# Schematic View
+
+[Download PDF](https://github.com/Arijeet2580/Arduino-Projects/blob/main/P7_Color_Mixer/Schematic_View.pdf)
