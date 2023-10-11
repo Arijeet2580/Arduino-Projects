@@ -20,6 +20,7 @@ This repository contains all the Arduino Projects that I have done. These projec
 5. Digital Dice
 6. Light Activated Alarm
 7. RGB Color Mixer
+8. Mini Weather Station
 
 ## Upcoming Projects
 8. Temperature Controlled Fan
@@ -27,7 +28,6 @@ This repository contains all the Arduino Projects that I have done. These projec
 10. IR Remote Control
 11. Arduino Music Player
 12. Morse Code Transmitter
-13. Mini Weather Station
 14. Tilt Activated Game
 15. Digital Clock
 17. Data Logger
