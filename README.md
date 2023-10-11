@@ -20,7 +20,6 @@ This repository contains all the Arduino Projects that I have done. These projec
 5. Digital Dice
 6. Light Activated Alarm
 7. RGB Color Mixer
-8. Sound Activated Light
 
 ## Upcoming Projects
 8. Temperature Controlled Fan
