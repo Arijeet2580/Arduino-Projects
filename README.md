@@ -18,11 +18,11 @@ This repository contains all the Arduino Projects that I have done. These projec
 3. Gas Leak Alarm System
 4. Temperature Monitor
 5. Digital Dice
-6.Light Activated Alarm
+6. Light Activated Alarm
 7. RGB Color Mixer
+8. Sound Activated Light
 
 ## Upcoming Projects
-7. Sound Activated Light
 8. Temperature Controlled Fan
 9. Digital Thermometer
 10. IR Remote Control
