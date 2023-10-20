@@ -1,3 +1,8 @@
+// BLUETOOTH COMMUNICATION 7 6 HC-05
+#include <SoftwareSerial.h>
+#define tx 7
+#define rx 6
+SoftwareSerial bSerial (tx,rx);
 int redVal=0;
 int blueVal=0;
 int greenVal=0;
@@ -13,7 +18,8 @@ boolean communicationStarted = false;
 int wordCount = 0;
 void setLed(String message);
 void setup() {
-  Serial.begin(9600);// Set your desired baud rate
+  bSerial.begin(9600);// Set your desired baud rate
+  Serial.begin(9600); // For Debugging
   pinMode(red,OUTPUT);
   pinMode(blue,OUTPUT);
   pinMode(green,OUTPUT);
@@ -21,15 +27,19 @@ void setup() {
 
 void loop() {
   // Check if there's data available in the Serial Monitor
-  if (Serial.available()) {
-    data = Serial.read();
+  if (bSerial.available()) {
+    data = bSerial.read();
     
     // Check if communication has started
     if (data == START_TOKEN) {
       communicationStarted = true;
       messageBuffer = "";  // Clear the buffer
       wordCount = 0;  // Reset word count
-      Serial.println("Communication started");
+      bSerial.println("Communication started");
+      bSerial.println("Communication started");
+      bSerial.println("Enter the value in this format");
+  	  bSerial.println("r=xxx&b=xxx&g=xxx");
+      bSerial.println("No given value should be greater than 255");
     }
     
     // If communication has started, add data to the buffer
@@ -42,23 +52,24 @@ void loop() {
         }
         if (wordCount > MAX_WORDS) {
           // Message exceeds word limit, trigger alarm
-          Serial.println("Alarm: Message exceeds 30 words");
+          bSerial.println("Alarm: Message exceeds 30 words");
           communicationStarted = false;
         }
       } else {
         // Communication ended, process the message
-        Serial.println("Communication ended");
+        bSerial.println("Communication ended");
         messageBuffer.trim();  // Remove leading/trailing whitespace
         messageBuffer.remove(0, 1);  // Remove the START TOKEN
         String message = messageBuffer;
-        Serial.println("Received Message: " + message);
+        bSerial.println("Received Message: " + message);
         setLed(message);
         communicationStarted = false;
       }
     }
   }
 }
-void setLed(String message){
+void setLed(String message)
+{
   int startPos, endPos;
   
   // Parse red value
