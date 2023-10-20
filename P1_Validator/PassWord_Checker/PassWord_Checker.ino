@@ -1,18 +1,20 @@
+#include <SoftwareSerial.h>
 String password = "mango" ;
 String userName= "mangoboy";
-byte ledRed=13;
-byte ledGreen=11;
+byte red=9;//PWM pins
+byte green=10;//PWM pins
+SoftwareSerial Bluetooth(11,12);//RX TX
 void setup() {
   // put your setup code here, to run once:
   pinMode(ledRed,OUTPUT);
   pinMode(ledGreen,OUTPUT);
-  Serial.begin(9600);
+  Bluetooth.begin(9600);
 }
 boolean Check(String input,String pass){
   int i;
   boolean count=true;
   if(input.length()!= pass.length()){
-    Serial.println("Wrong length of given password");
+    Bluetooth.println("Wrong length of given password");
     return false;
   }
   else{
@@ -29,29 +31,30 @@ boolean Check(String input,String pass){
     }
   }
 }
+void Rled(){
+  analogWrite(red,255);
+  analogWrite(green,0);
+}
+void Gled(){
+  analogWrite(red,0);
+  analogWrite(green,255);
+}
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.print("Enter UserName: ");
-  while(Serial.available()==0){}
-  String inputUser=Serial.readString();
-  Serial.print("Enter your password: ");
-  while(Serial.available()==0){}
-  String inputpass=Serial.readString();
-  delay(10);
-  Serial.println();
-  Serial.print("Your Username:");
-  Serial.println(inputUser);
-  Serial.println();
-  Serial.print("Your password:");
-  Serial.println(inputpass);
+  Bluetooth.print("Enter UserName: ");
+  while(Bluetooth.available()==0){}
+  String inputUser=Bluetooth.readString();
+  Bluetooth.println(inputUser);
+  Bluetooth.print("Enter your password: ");
+  while(Bluetooth.available()==0){}
+  String inputpass=Bluetooth.readString();
+  Bluetooth.println(inputpass);
   if(Check(inputpass,password) == true && Check(inputUser,userName) == true){
-    digitalWrite(ledGreen,HIGH);
-    digitalWrite(ledRed,LOW);
-    Serial.println("Valid User");
+    Gled();
+    Bluetooth.println("Valid User");
   }
   else{
-    digitalWrite(ledGreen,LOW);
-    digitalWrite(ledRed,HIGH);
-    Serial.println("Invalid User");
+    Rled();
+    Bluetooth.println("Invalid User");
   }
 }

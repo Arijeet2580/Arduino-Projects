@@ -1,10 +1,10 @@
 # 1️⃣ Validator
 
-This Project is about a simple validator that checks the validity of the username and password given by the user.
-if the username and password are correct led Green will glow and if the username and password are incorrect led Red will glow.
-<br>
-This project can physically be implemented in a door lock system.
-By using a relay and a solenoid lock, We can create a door lock system that can be unlocked by entering the correct username and password.
+In this Project, I have used a HC - 05 Bluetooth module to communicate with the Arduino that checks whether the username and password given by the user is correct or not.
+
+If the User is valid user, It outputs valid user along with the RGB LED turning to Green.
+
+Whereas, If the User is invalid user, It outputs invalid user along with the LED turning to red.
 
 ![Circuit Diagram in Proteus](https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/1a9afc9c-b315-4a11-9621-8e28226c3ba8)
 <br>
@@ -13,8 +13,13 @@ https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/c4cbb5c2-00f0-4
 
 
 ## Tech Stack Used:
-1. Serial Monitor
-2. Green and Red LEDs
+1. Bluetooth Module(HC-05/HC-06)
+2. RGB Led
 
 ## Knowledge Required:
-1. Serial Communication
+1. Bluetooth Communication
+
+```terminal
+#include <SoftwareSerial.h>
+SoftwareSerial Bluetooth(10,11)//RX TX
+```
