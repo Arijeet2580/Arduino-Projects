@@ -1,23 +1,33 @@
 # 2️⃣ Water Level Detector
 
-This project  Ultrasonic sensor is used to detect the water level in the tank. This project prevents the overflow of water from the tank.It has a range of real life applications such as in the water tank of our house, in the water tank of our car, etc. 
+In this Detector, Ultrasonic Sensor is used to detect the water level of the Water Tank. the value from the Sensor is mapped to a distance and later into the water level in Litre to be shown in the lcd screen.
 
-* If the Water level is below Threshold value then the motor will turn On 
-* If the water level is above the threshold value then the motor will turn Off.
- * The Turn On and Turn Off of the motor is indicated by the led.
+Then the value is conditioned to see whether the relay need to be high or not. That checks whether the motor is ON or not
 
-![image](https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/b6c8a56c-5df3-4159-9ce9-82e00ce56630)
+The output then scrolled down to show the status of the motor.
+### LCD Screen OUTPUT format
+WATER LVL: 20L<br>
+MOTOR: OFF
 
-<br>
-<br>
- https://github.com/Arijeet2580/Arduino-Projects/assets/115724080/42a03e88-f524-4ba9-bb47-4d6bd604bdbf
 
 # Technology Used:
-1. Ultrasonic Sensor
+1. Ultrasonic Sensor HC SR04
 2. Relay
-
+3. lcd Screen 16X2 
 # Knowledge Required 
+```terminal
+long duration = pulseIn(echoPin,HIGH);
+```
+Counts the duration the echoPin is HIGH or it returns the time taken the sound to reach the receiver
+```terminal
+long distance = (duration * 0.0344)/2;
+```
+344 m/s to 0.0344 cm/microseconds<br>
+The distance is divided by 2 because the echopin counts the time it take to reach the object and come from there.
 
-1. Sensor Interfacing & Calibration
-3. Relay Interfacing & Calibration
-4. Basic Relay & Sensor Knowledge
+```terminal
+byte trigPin = 7,echoPin = 5,motor   = 3;
+```
+UltraSonic Sensor is ranges from 3cm to 4m <br>
+The Size of the water tank is 2m Let's take Water level when motor needs to be ON be 1.5m so 150cm <br>
+Let's take Water level when motor needs to be OFF be 0.5m so 50 cm
