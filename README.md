@@ -13,7 +13,7 @@ This repository contains all the Arduino Projects that I have done. These projec
 5. [How to make a Pull Request](#how-to-make-a-pull-request)
 
 ## Projects
-1. PassWord Validator using Serial Monitor
+1. PassWord Validator 
 2. Water Level Detector
 3. Gas Leak Alarm System
 4. Temperature Monitor
