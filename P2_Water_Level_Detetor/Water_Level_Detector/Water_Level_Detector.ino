@@ -1,20 +1,17 @@
-byte trigPin = 7;
-byte echoPin = 5;
-byte motor   = 3;
-//UltraSonic Sensor is ranges from 3cm to 4m
-// The Size of the water tank is 2m
-//Let's take Water level when motor needs to be ON be 1.5m so 150 cm
-byte lowlvl = 150;
-//Let's take Water level when motor needs to be OFF be 0.5m so 50 cm
-byte highlvl= 50;
+#include <LiquidCrystal.h>
+byte trigPin = 7,echoPin = 5,relay= 3;
+byte lowlvl = 150, highlvl= 50;
+byte rs=8,en=9,d4=10,d5=11,d6=12,d7=13;
+LiquidCrystal lcd (rs,en,d4,d5,d6,d7);
 void setup() {
   // put your setup code here, to run once:
   pinMode(trigPin,OUTPUT);
   pinMode(echoPin,INPUT);
-  pinMode(motor,OUTPUT);
-  Serial.begin(9600);
-  digitalWrite(trigPin,LOW);//Initialising the trigPin to LOW at first
-  digitalWrite(motor,LOW); // At first, Motor should always be OFF then the motor can run accoroding to the condition
+  pinMode(relay,OUTPUT);
+  Serial.begin(9600); //Debugging
+  lcd.begin(16,2);//16X2 lcd screen
+  digitalWrite(trigPin,LOW);
+  digitalWrite(relay,LOW);
 }
 void loop() {
   // put your main code here, to run repeatedly:
@@ -22,23 +19,28 @@ void loop() {
   delayMicroseconds(30);    //Delay recommended > 10 microseconds accoroding to datasheet of HC-SR04
   digitalWrite(trigPin,LOW);
   long duration = pulseIn(echoPin,HIGH);
-  //Counts the duration the echoPin is HIGH .
-  //or it returns the time taken the sound to reach the reciever
   long distance = (duration * 0.0344)/2;
-  //344 m/s to 0.0344 cm/microsecods
-  //the distance is divided by 2 because the echopin counts the time it take to
-  //reach the object and come  from there.
-  //The value returned by the distance is in cm
-  Serial.println(distance);
+  /*
+  200cm -> 0L  |   10cm->20L
+  */
+  int litre= map(distance,200,10,0.20);
+  lcd.setCursor(0,0);
+  lcd.print("Water Level: ");
+  lcd.setCursor(0,1);
+  lcd.print(litre);
+  lcd.print("L");
+  lcd.setCursor(16,0);
+  lcd.autoScroll();
   if(distance > 150 )
   {
-    Serial.println("Switching OFF the motor");
-    digitalWrite(motor,LOW);
+    lcd.print("MOTOR: OFF");
+    digitalWrite(relay,LOW);
   }
   else
   {
-    Serial.println("Switching ON the motor");
-    digitalWrite(motor,HIGH);
+    lcd.print("MOTOR ON ");
+    digitalWrite(relay,HIGH);
   }
-
+  lcd.noAutoScroll();
+  lcd.clear();
 }
