@@ -1,8 +1,8 @@
 #include <LiquidCrystal.h>
-byte trigPin = 7,echoPin = 5,relay= 3;
-byte lowlvl = 150, highlvl= 50;
 byte rs=8,en=9,d4=10,d5=11,d6=12,d7=13;
 LiquidCrystal lcd (rs,en,d4,d5,d6,d7);
+byte trigPin = 7,echoPin = 5,relay= 3;
+byte lowlvl = 150, highlvl= 50;
 void setup() {
   // put your setup code here, to run once:
   pinMode(trigPin,OUTPUT);
