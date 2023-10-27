@@ -1,9 +1,12 @@
 # 3️⃣ LPG Detection Alarm System
 
 A MQ-05 Gas Sensor is Constantly Detecting the Sensor Value and displaying the Concentration of the LPG in the Environment by the LCD Screen For Nearby person and via Bluetooth For Distant Person.
-Green Light will be Kept ON.
+Green Light will Glow.
 
-Whenever LPG gas is detected in the Nearby Environment, a Distress Signal will be Sent via Bluetooth and LCD will display LPG Present and Red LED will Glow. 
+
+Whenever LPG gas is detected in the Nearby Environment, a Distress Signal will be Sent via Bluetooth and LCD will display LPG Present and Red LED will Glow.
+
+But With the distress Signal, The Servo Motor changes from 0th Position to 90deg or Perpendicular Pulling the Window hence, The Harmful Flammable LPG gas gets a free path so that the situation danger can be Decreased.
 
 ## Components Required
 1. MQ2 Gas Sensor
