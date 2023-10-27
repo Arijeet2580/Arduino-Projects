@@ -1,6 +1,10 @@
 # 3️⃣ Gas Leak Alarm System
 
-This Alarm System buzzes the buzzer when there is a gas leak and opens the Nearby Windows to let the gas out.
+
+#### Memory Requirement:
+Sketch uses 4680 bytes (14%) of program storage space. Maximum is 32256 bytes.
+
+Global variables use 246 bytes (12%) of dynamic memory, leaving 1802 bytes for local variables. Maximum is 2048 bytes.
 
 ## Components Required
 1. MQ2 Gas Sensor

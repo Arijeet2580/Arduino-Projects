@@ -1,10 +1,5 @@
 #include <LiquidCrystal.h>
-byte rs=12;
-byte en=11;
-byte d4=5;
-byte d5=4;
-byte d6=3;
-byte d7=2;
+byte rs=12,byte en=11,byte d4=5,byte d5=4,byte d6=3,byte d7=2;
 LiquidCrystal lcd(rs,en,d4,d5,d6,d7);
 byte ts = A0;
 void setup() {
