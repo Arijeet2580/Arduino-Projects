@@ -7,12 +7,8 @@ This project can also used by using Bluetooth Communication.
 We just need to change all the Serial object with the Bluetooth Object.
 And add
 ```terminal
-    #include <SoftwareSerial.h>
-    SoftwareSerial.h bluetooth(10,11);
-    bluetooth.begin(9600);
+#include <SoftwareSerial.h>
+SoftwareSerial.h bluetooth(10,11);
+bluetooth.begin(9600);
 ```
 Switch every Serial object with bluetooth object.
-
-# Schematic View
-
-[Download PDF](https://github.com/Arijeet2580/Arduino-Projects/blob/main/P7_Color_Mixer/Schematic_View.pdf)
