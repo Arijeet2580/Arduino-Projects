@@ -36,8 +36,12 @@ This repository contains all the Arduino Projects that I have done. These projec
 
 # Wireless Communication
 - Bluetooth Communication (HC05/HC06)
-- 
--  
+- Wifi Communication(ESP8266/ESP32)
+- BLE Communication (HM10/HC08)
+- RF Communication (NRF24L01)
+- GSM Communication (SIM900A/SIM800L)
+
+
 # Hardware and Software Requirements:
 We require the following hardware and software to implement the projects.
 We also need a deep understanding of Sensor and their Working.
