@@ -1,70 +1,58 @@
-#include <Servo.h>
-#include <SoftwareSerial.h>
-#include <LiquidCrystal.h>
-// Bluetooth Initialisation
-const byte RX = 6,TX = 7;
-SoftwareSerial Bluetooth(RX,TX);
-//LiquidCrystal Initialisation
-const byte rs=8,en=9,d4=10,d5=11,d6=12,d7=13;
-LiquidCrystal lcd (rs,en,d4,d5,d6,d7);
-// Servo Initialisation
-Servo Servo1; 
-byte Gas=A0,buzzer=5;
-const int DANGER=700; //MQ-5 GAS SENSOR DANGER level: 700 analog Value
-/*
-0ppm    --> 60  (Ambient Air)
-1000ppm --> 800
-X1=60 Y1=0
-X2=800 Y2=1000
-m=(y2-y1)/(x2-x1)
-m=1.351
-ppm=m*(Sensor Value -60)
-  = 1.351*(SV-60)
-*/
-const byte SERVO=4;
-byte SVal=0;
-byte ppm=0;
-byte red=3;
-byte green=2;
-int a[4]={440,494,523,672};
+// Define pins for components
+const int ldrPin = A0;     // LDR (Light Dependent Resistor) connected to analog pin A0
+const int buzzerPin = 9;   // Buzzer connected to digital pin 9
+const int ledPin = 13;     // Built-in LED for visual indication
+
+// Variables
+const int lightThreshold = 500;  // Adjust this value based on your environment
+int lightLevel;                  // Variable to store light readings
+
 void setup() {
-  // put your setup code here, to run once:
-  Bluetooth.begin(9600);
-  lcd.begin(16, 2);
-  pinMode(RX,INPUT);
-  pinMode(TX,OUTPUT);
-  Servo1.attach(SERVO);
-  pinMode(buzzer,OUTPUT);
+  // Initialize serial communication for debugging
+  Serial.begin(9600);
+  
+  // Set pin modes
+  pinMode(ldrPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(ledPin, OUTPUT);
+  
+  // Initial delay to let the system stabilize
+  delay(1000);
 }
+
 void loop() {
-  SVal=analogRead(Gas);
-  ppm= 1.351*(SVal-60);
-  //Bluetooth Communication 
-  Bluetooth.print("Concentration Level: ");
-  Bluetooth.println(ppm);
-  // LCD communication 
-  lcd.setCursor(0,0);
-  lcd.print("PPM: ");
-  lcd.print(ppm);
-  if(SVal > DANGER){
-    Servo1.write(100);   //In Practice, 100 degrees Required for the desired Result to Open the Window
-    delay(30); //Mechanical Response Time
-    lcd.setCursor(0,1);
-    lcd.print("LPG Present");
-    Bluetooth.println("LPG Detected Nearby Opening the Nearby Window");
-    for(int i=0;i<4;i++){
-      tone(buzzer,a[i],300); 
-      delay(1000);
-    }
-    noTone(buzzer);
-    digitalWrite(red,HIGH);
-    digitalWrite(green,LOW);      
+  // Read light level from LDR
+  lightLevel = analogRead(ldrPin);
+  
+  // Print light level to Serial Monitor for debugging
+  Serial.print("Light Level: ");
+  Serial.println(lightLevel);
+  
+  // Check if light level is above threshold
+  if (lightLevel > lightThreshold) {
+    // Trigger alarm
+    triggerAlarm();
+  } else {
+    // System normal - no alarm
+    stopAlarm();
   }
-  else{
-    lcd.setCursor(0,1);
-    lcd.print("LPG Absent");    
-    digitalWrite(red,LOW);
-    digitalWrite(green,HIGH);
-  }
-  lcd.clear();
+  
+  // Small delay to prevent too frequent readings
+  delay(100);
+}
+
+void triggerAlarm() {
+  // Activate buzzer with a beeping pattern
+  tone(buzzerPin, 1000);  // 1kHz tone
+  digitalWrite(ledPin, HIGH);
+  delay(500);
+  noTone(buzzerPin);
+  digitalWrite(ledPin, LOW);
+  delay(500);
+}
+
+void stopAlarm() {
+  // Ensure buzzer and LED are off
+  noTone(buzzerPin);
+  digitalWrite(ledPin, LOW);
 }
