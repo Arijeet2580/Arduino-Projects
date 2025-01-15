@@ -114,7 +114,7 @@ We'd also love PRs. If you're thinking of a large PR, we advise opening up an is
    git remote add upstream https://github.com/Soumyajit2825/MESSI_MANIA.git
 ```
 
-**10.** Check the remotes for this repository.
+**10.** Check the remotes for this repository
 
 ```
    git remote -v
