@@ -20,19 +20,19 @@ This repository contains all the Arduino Projects that I have done. These projec
 5. Digital Dice
 6. Light Activated Alarm
 7. RGB Color Mixer
-1A. ESP32 Wifi Server model
+8. ESP32 Wifi Server model
 
 ## Upcoming Projects
-8. Temperature Controlled Fan
 9. Digital Thermometer
-10. IR Remote Control
+10. Temperature Controlled Fan
 11. Arduino Music Player
 12. Morse Code Transmitter
 13. Mini Weather Station
 14. Tilt Activated Game
 15. Digital Clock
 17. Data Logger
-18. Establish Wireless Data Communication in Each Projects
+18. IR Remote Control
+19. Establish Wireless Data Communication in Each Projects
 
 # Wireless Communication
 - Bluetooth Communication (HC05/HC06)
