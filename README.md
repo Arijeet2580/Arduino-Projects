@@ -21,9 +21,9 @@ This repository contains all the Arduino Projects that I have done. These projec
 6. Light Activated Alarm
 7. RGB Color Mixer
 8. ESP32 Wifi Server model
+9. Digital Thermometer
 
 ## Upcoming Projects
-9. Digital Thermometer
 10. Temperature Controlled Fan
 11. Arduino Music Player
 12. Morse Code Transmitter
