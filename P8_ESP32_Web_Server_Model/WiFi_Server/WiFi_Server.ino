@@ -1,7 +1,7 @@
 #include <WiFi.h>
 // Replace with your network credentials
-const char* ssid = "redmi 9i";
-const char* password = "kamehameha";
+const char* ssid = "SSID";
+const char* password = "PASSWORD";
 // Set web server port number to 80
 WiFiServer server(80);
 // Variable to store the HTTP request
