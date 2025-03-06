@@ -6,20 +6,16 @@ const char* password = "kamehameha";
 WiFiServer server(80);
 // Variable to store the HTTP request
 String header;
-String led1State = "off";
-String led2State = "off";
+String ledState = "off";
 // Assign output variables to GPIO pins
-const int led1 = 26;
-const int led2 = 27;
+const int led = 2;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   // Initialize the output variables as outputs
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
+  pinMode(led, OUTPUT);
   // Set outputs to LOW
-  digitalWrite(led1, LOW);
-  digitalWrite(led2, LOW);
+  digitalWrite(led, LOW);
   // Connect to Wi-Fi network with SSID and password
   Serial.print("Connecting to ");
   Serial.println(ssid);
@@ -60,52 +56,33 @@ void loop() {
             */
             if(header.indexOf("GET /26/on") >=0){ 
                 Serial.println("Turning On led in GPIO 26 pin");
-                led1State="ON";
-                digitalWrite(led1,HIGH);
+                ledState="ON";
+                digitalWrite(led,HIGH);
             }
             else if(header.indexOf("GET /26/off") >=0){
                 Serial.println("Turning Off led in GPIO 26 pin");
-                led1State="OFF";
-                digitalWrite(led1,LOW);              
-            }
-            else if(header.indexOf("GET /27/on") >=0){
-                Serial.println("Turning On led in GPIO 26 pin");
-                led2State="ON";
-                digitalWrite(led2,HIGH);              
-            }
-            else if(header.indexOf("GET /27/off") >=0){
-                Serial.println("Turning Off led in GPIO 26 pin");
-                led2State="OFF";
-                digitalWrite(led2,LOW);              
+                ledState="OFF";
+                digitalWrite(led,LOW);              
             }
 
             //HTML CSS Code for ESP32
             client.println("<!DOCTYPE html><html>");
             client.println(" <head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> ");                      
-            client.println("<title>Document</title>");
+            client.println("<title>Station Mode Console</title>");
             client.println("<style>html{font-family:Helvetica;display:inline-block;margin:0px auto;text-align:center;}");
             client.println(".button{background-color:#4CAF50;border:none;color:white;padding:16px 40px;text-decoration:none;font-size:30px;margin:2px;cursor:pointer;}");
             client.println(".button2{background-color:#555555;}</style></head>");
             //4CAF50: FRUIT SALAD GREEN #555555 GREY COLOR
-            client.println("<body><h1>ESP32 Web Server</h1>");
-            //Following line used to display the State of Led1 connected to the GPIO pin 26
-            client.println("<p>LED1 state "+led1State+" </p>");
-            if(led1State=="off" || led1State=="OFF"){
+            client.println("<body><h1>ESP32 Station Mode Server</h1>");
+            //Following line used to display the State of Led connected to the GPIO pin 26
+            client.println("<p>LED state "+ledState+" </p>");
+            if(ledState=="off" || ledState=="OFF"){
                 client.println("<p><a href=\"/26/on\"><button class=\"button\">ON</button></a></p>");                
             }
             else{
               client.println("<p><a href=\"/26/off\"><button class=\"button button2\">OFF</button></a></p>");
             }
-
-
-            //Following line used to display the State of Led2 connected to the GPIO pin 27
-            client.println("<p>LED1 state "+led2State+" </p>");
-            if(led2State=="off" || led2State=="OFF"){
-                client.println("<p><a href=\"/27/on\"><button class=\"button\">ON</button></a></p>");                
-            }
-            else{
-              client.println("<p><a href=\"/27/off\"><button class=\"button button2\">OFF</button></a></p>");
-            }    
+   
             client.println("</body></html>");
             //HTTP response ends with another blank line
             client.println();
@@ -121,7 +98,7 @@ void loop() {
         }
       }//2 if(client.available()) ends
     }//1 while(client.connected()){ ends
-
+    
     //Clear the header variable
     header="";
     //Close the  connection 
