@@ -12,8 +12,8 @@ This repository contains all the Arduino Projects that I have done. These projec
 4. [How to Contribute](#how-to-contribute)
 5. [How to make a Pull Request](#how-to-make-a-pull-request)
 
-## Initial Projects
-A. Bit Banging Code for Transmission and Reception of Data
+## Side Projects
+A. Bit Banging UART Communication
 
 ## Projects
 1. PassWord Validator 
