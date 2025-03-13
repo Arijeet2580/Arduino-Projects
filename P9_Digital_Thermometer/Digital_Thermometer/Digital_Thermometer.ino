@@ -51,18 +51,18 @@ void setup() {
 
 void loop() {
   unsigned long currentMillis = millis();
-  
+
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
-    
+
     // Read and calculate temperature
     int sensorValue = analogRead(lm35Pin);
     tempC = (sensorValue * 5.0 / 1024.0) * 100;  // Convert to Celsius
     tempF = (tempC * 9.0 / 5.0) + 32;            // Convert to Fahrenheit
-    
+
     // Update display
     updateDisplay();
-    
+
     // Print to Serial for debugging
     Serial.print("Temperature: ");
     Serial.print(tempC);
@@ -73,6 +73,8 @@ void loop() {
 }
 
 void updateDisplay() {
+  lcd.clear();
+  
   // First row - Celsius
   lcd.setCursor(0, 0);
   lcd.print("Temp: ");
@@ -82,18 +84,18 @@ void updateDisplay() {
   
   // Second row - Fahrenheit
   lcd.setCursor(0, 1);
-  lcd.print("     ");
+  lcd.print(" ");
   lcd.print(tempF, 1);
   lcd.write(0);  // Display custom degree symbol
   lcd.print("F   ");
-  
+
   // Add indicator for temperature range
-  lcd.setCursor(15, 0);
+  lcd.setCursor(10, 1);
   if (tempC > 30) {
-    lcd.print("HOT TEMP");  // Hot
+    lcd.print("HOT ");
   } else if (tempC < 20) {
-    lcd.print("LOW TEMP");  // Low
+    lcd.print("LOW ");
   } else {
-    lcd.print("NORMAL TEMP");  // Normal
+    lcd.print("NORMAL");
   }
 }
