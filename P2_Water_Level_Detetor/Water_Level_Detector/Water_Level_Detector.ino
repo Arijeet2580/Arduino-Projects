@@ -187,15 +187,9 @@ void handleBuzzer(unsigned long currentMillis) {
 
 // Log data to serial for monitoring
 void logToSerial(int distance, int litre, int percentFull) {
-  Serial.print("Distance: ");
-  Serial.print(distance);
-  Serial.print(" cm, Water: ");
-  Serial.print(litre);
-  Serial.print(" L (");
-  Serial.print(percentFull);
-  Serial.print("%), Motor: ");
-  Serial.print(motorState ? "ON" : "OFF");
-  Serial.print(", Status: ");
+  Serial.printf("Distance: %d cm, Water: %d L, %d Percentage\n",distance,litre,percentFull);
+  Serial.printf("Motor: %s\n",motorState ? "ON" : "OFF");
+  Serial.print("Status: ");
   
   if (inCriticalZone) {
     Serial.println("CRITICAL");
