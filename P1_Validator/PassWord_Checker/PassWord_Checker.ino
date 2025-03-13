@@ -54,8 +54,7 @@ void setup() {
   Rled();
   
   // Welcome message
-  Serial.println("Bluetooth Lock System Initialized");
-  Serial.println("System is LOCKED");
+  Serial.printf("Bluetooth Lock System Intialized\n System is Locked\n");
 }
 
 void loadCredentials() {
@@ -72,12 +71,8 @@ void loadCredentials() {
     writeStringToEEPROM(passwordAddress, currentPassword);
     writeStringToEEPROM(usernameAddress, currentUserName);
   }
-  
-  Serial.println("Credentials loaded:");
-  Serial.print("Username: ");
-  Serial.println(currentUserName);
-  Serial.print("Password: ");
-  Serial.println(currentPassword);
+
+  Serial.printf("Credentials loaded:\n UserName: %s \nPassword: %s\n",currentUserName,currentPassword);
 }
 
 void writeStringToEEPROM(int address, String data) {
