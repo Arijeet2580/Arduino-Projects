@@ -14,12 +14,13 @@ This repository contains all the Arduino Projects that I have done. These projec
 
 ## Side Projects
 A. Bit Banging UART Communication
+B. Wireless Communication Integration
 
 ## Projects
 1. PassWord Validator 
 2. Water Level Detector
 3. Gas Leak Alarm System
-4. Temperature Monitor
+4. Temperature Monitored Fan
 5. Digital Dice
 6. Light Activated Alarm
 7. RGB Color Mixer
@@ -27,7 +28,6 @@ A. Bit Banging UART Communication
 9. Digital Thermometer
 
 ## Upcoming Projects
-10. Temperature Controlled Fan
 11. Arduino Music Player
 12. Morse Code Transmitter
 13. Mini Weather Station
@@ -35,7 +35,6 @@ A. Bit Banging UART Communication
 15. Digital Clock
 17. Data Logger
 18. IR Remote Control
-19. Establish Wireless Data Communication in Each Projects
 
 # Wireless Communication
 - Bluetooth Communication (HC05/HC06)
@@ -56,7 +55,8 @@ We also need a deep understanding of Sensor and their Working.
 ## Software Requirements:
 1. Arduino IDE
 2. Proteus 8 Professional
-3. Tinkercad
+3. TinkerCAD
+
 ## Issues and PRs
 
 If you have suggestions for how this project could be improved, or want to report a bug, open an issue! We'd love all and any contributions. If you have questions, too, we'd love to hear them.
