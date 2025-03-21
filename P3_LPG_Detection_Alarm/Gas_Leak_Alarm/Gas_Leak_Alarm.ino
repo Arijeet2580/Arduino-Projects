@@ -17,12 +17,12 @@ const byte LED_GREEN = 2;         // Green LED pin
 const byte DEBUG_BUTTON = A1;     // Debug button pin
 
 // System Constants
-const int DANGER_THRESHOLD = 700; // Gas danger threshold (analog value)
-const int WARNING_THRESHOLD = 500; // Gas warning threshold
-const int SERVO_OPEN_ANGLE = 100; // Angle to open window
-const int SERVO_CLOSED_ANGLE = 0; // Angle to close window
-const int EEPROM_CALIB_ADDR = 0;  // EEPROM address for calibration value
-const int EEPROM_DEBUG_ADDR = 10; // EEPROM address for debug settings
+const uint16_t DANGER_THRESHOLD = 700; // Gas danger threshold (analog value)
+const uint16_t WARNING_THRESHOLD = 500; // Gas warning threshold
+const uint16_t SERVO_OPEN_ANGLE = 100; // Angle to open window
+const uint8_t SERVO_CLOSED_ANGLE = 0; // Angle to close window
+const uint8_t EEPROM_CALIB_ADDR = 0;  // EEPROM address for calibration value
+const uint8_t EEPROM_DEBUG_ADDR = 10; // EEPROM address for debug settings
 const unsigned long LCD_REFRESH_RATE = 1000; // LCD refresh in ms
 const unsigned long BT_REFRESH_RATE = 3000;  // Bluetooth refresh in ms
 const unsigned long DEBUG_INTERVAL = 500;    // Debug data refresh rate
@@ -47,8 +47,8 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 Servo Servo1;
 
 // Variables
-int gasValue = 0;
-int ppm = 0;
+uint16_t gasValue = 0;
+uint16_t ppm = 0;
 bool windowOpen = false;
 bool inDangerState = false;
 bool inWarningState = false;
@@ -56,15 +56,15 @@ unsigned long lastLcdUpdate = 0;
 unsigned long lastBtUpdate = 0;
 unsigned long lastDebugUpdate = 0;
 unsigned long lastToneChange = 0;
-int currentTone = 0;
+uint16_t currentTone = 0;
 float calibrationFactor = PPM_FACTOR; // Default value
 
 // System Statistics
 unsigned long systemStartTime = 0;
 unsigned long lastAlarmTime = 0;
-int alarmCount = 0;
-int windowOperations = 0;
-int maxGasReading = 0;
+uint16_t alarmCount = 0;
+uint16_t windowOperations = 0;
+uint16_t maxGasReading = 0;
 
 // Function Prototypes
 void displayStatus();
