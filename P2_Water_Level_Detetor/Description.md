@@ -93,7 +93,155 @@ This code is specifically optimized for Arduino's limited memory:
    - Compact serial output
    - Conditional serial output only when connected
    - Simplified logic paths
+The code uses **bit manipulation** as a memory-efficient way to store multiple boolean flags in a single byte. Let me break down this clever technique:
 
+## The Problem
+Instead of using separate `bool` variables for each system state (which would use 1 byte each), the code packs multiple flags into a single `uint8_t` variable.
+
+## The Solution: Bit Fields
+
+```cpp
+// Single byte to store all system states
+uint8_t systemState = 0;
+
+// Bit position definitions
+#define MOTOR_STATE 0    // Bit 0: Motor ON/OFF
+#define WARNING_ZONE 1   // Bit 1: Warning level active
+#define CRITICAL_ZONE 2  // Bit 2: Critical level active
+```
+
+## Visual Representation
+
+```
+systemState byte: [ 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 ]
+                  [   unused    | C | W | M ]
+
+Where:
+- Bit 0 (M): Motor State (0=OFF, 1=ON)
+- Bit 1 (W): Warning Zone (0=normal, 1=warning)
+- Bit 2 (C): Critical Zone (0=normal, 1=critical)
+- Bits 3-7: Unused (available for future features)
+```
+
+## The Three Macros Explained
+
+### 1. **SET_BIT** - Turn a bit ON (set to 1)
+```cpp
+#define SET_BIT(reg, bit) (reg |= (1 << bit))
+```
+
+**How it works:**
+- `(1 << bit)` creates a mask with only the target bit set
+- `|=` performs bitwise OR to set that bit to 1
+
+**Example:**
+```cpp
+// Turn motor ON (set bit 0)
+SET_BIT(systemState, MOTOR_STATE);
+
+// Step by step:
+// 1 << 0 = 00000001 (mask)
+// systemState = 00000000 (before)
+// systemState |= 00000001
+// systemState = 00000001 (after - motor ON)
+```
+
+### 2. **CLEAR_BIT** - Turn a bit OFF (set to 0)
+```cpp
+#define CLEAR_BIT(reg, bit) (reg &= ~(1 << bit))
+```
+
+**How it works:**
+- `(1 << bit)` creates a mask with target bit set
+- `~` inverts the mask (target bit becomes 0, others become 1)
+- `&=` performs bitwise AND to clear only that bit
+
+**Example:**
+```cpp
+// Turn motor OFF (clear bit 0)
+CLEAR_BIT(systemState, MOTOR_STATE);
+
+// Step by step:
+// 1 << 0 = 00000001
+// ~(1 << 0) = 11111110 (inverted mask)
+// systemState = 00000001 (before)
+// systemState &= 11111110
+// systemState = 00000000 (after - motor OFF)
+```
+
+### 3. **READ_BIT** - Check if a bit is ON or OFF
+```cpp
+#define READ_BIT(reg, bit) ((reg >> bit) & 1)
+```
+
+**How it works:**
+- `>> bit` shifts the target bit to position 0
+- `& 1` masks out all bits except the least significant bit
+- Returns 1 if bit was set, 0 if it was clear
+
+**Example:**
+```cpp
+// Check if motor is ON
+bool motorIsOn = READ_BIT(systemState, MOTOR_STATE);
+
+// Step by step:
+// systemState = 00000101 (motor ON, warning ON)
+// systemState >> 0 = 00000101 (no shift for bit 0)
+// 00000101 & 1 = 1 (motor is ON)
+
+// Check if warning is active
+bool warningActive = READ_BIT(systemState, WARNING_ZONE);
+// systemState >> 1 = 00000010 (shift right 1)
+// 00000010 & 1 = 0... wait, that's wrong!
+// Actually: 00000010 & 00000001 = 0
+// Let me recalculate: 00000101 >> 1 = 00000010
+// 00000010 & 1 = 0... 
+
+// Actually, let me fix this:
+// systemState = 00000101 (bits 0 and 2 set)
+// For WARNING_ZONE (bit 1): 00000101 >> 1 = 00000010
+// 00000010 & 1 = 0 (bit 1 is NOT set)
+// For MOTOR_STATE (bit 0): 00000101 >> 0 = 00000101  
+// 00000101 & 1 = 1 (bit 0 IS set)
+```
+
+## Real Usage in the Code
+
+```cpp
+// Motor control logic
+if (distance > lowlvl) {
+    if (READ_BIT(systemState, MOTOR_STATE)) {      // Check if motor is currently ON
+        CLEAR_BIT(systemState, MOTOR_STATE);       // Turn motor OFF
+        digitalWrite(relay, LOW);
+    }
+}
+
+// Alarm state management
+if (distance > criticalLevel) {
+    SET_BIT(systemState, CRITICAL_ZONE);           // Activate critical alarm
+    CLEAR_BIT(systemState, WARNING_ZONE);         // Deactivate warning
+}
+```
+
+## Benefits of This Approach
+
+1. **Memory Efficiency**: 3 boolean states in 1 byte instead of 3 bytes
+2. **Atomic Operations**: All state changes happen in single instructions
+3. **Fast Execution**: Bit operations are extremely fast on microcontrollers
+4. **Scalable**: Can easily add more flags (5 more bits available)
+5. **Clean Code**: Macros make the operations readable and reusable
+
+## Alternative Without Bit Manipulation
+
+```cpp
+// Less efficient approach:
+bool motorState = false;      // 1 byte
+bool warningZone = false;     // 1 byte  
+bool criticalZone = false;    // 1 byte
+// Total: 3 bytes vs 1 byte with bit manipulation
+```
+
+This bit manipulation technique is a classic embedded programming optimization that saves precious RAM while maintaining code clarity through well-designed macros.
 ## Installation and Setup
 
 1. **Hardware Assembly**:
