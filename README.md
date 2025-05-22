@@ -2,7 +2,14 @@
 
 ## Introduction
 
-This repository contains all the Arduino Projects that I have done. These projects are based on Arduino Uno and are implemented on Proteus 8 Professional and Tinkercad
+This repository showcases a comprehensive collection of Arduino-based embedded systems projects, demonstrating proficiency in microcontroller programming, sensor integration, and IoT development. Each project emphasizes practical problem-solving through hardware-software integration and real-world applications.
+
+## 🛠️ Technical Stack
+
+Microcontroller: Arduino Uno, Nano, ESP32, ESP8266
+Programming Language: C/C++ (Arduino IDE)
+Communication Protocols: I2C, SPI, UART, WiFi, Bluetooth
+Sensors & Modules: DHT22, Ultrasonic, PIR, Servo Motors, LCD Displays
 
 ## Table of Contents
 
@@ -140,9 +147,10 @@ We'd also love PRs. If you're thinking of a large PR, we advise opening up an is
    git merge upstream/master
 ```
 
-Thanks to the Youtubers Who taught me 
-Here, Are the Playlists I used
-https://www.youtube.com/playlist?list=PLGs0VKk2DiYx6CMdOQR_hmJ2NbB4mZQn-
-https://toptechboy.com/
-Thanks For Your Amazing Contribution!!.🙂
-Suggest More Projects By Opening an Issue
+
+📞 Contact & Collaboration
+I'm always interested in discussing embedded systems projects, collaboration opportunities, or technical challenges. Feel free to explore the code, raise issues, or contribute to ongoing developments.
+Email: kararijeet26@gmail.com
+---
+This repository represents my journey in embedded systems development and showcases practical applications of Arduino technology in solving real-world problems. Each project demonstrates not just technical implementation, but also design thinking, documentation practices, and professional development standards.
+
