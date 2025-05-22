@@ -28,13 +28,12 @@ B. Wireless Communication Integration
 9. Digital Thermometer
 
 ## Upcoming Projects
-11. Arduino Music Player
-12. Morse Code Transmitter
-13. Mini Weather Station
-14. Tilt Activated Game
-15. Digital Clock
-17. Data Logger
-18. IR Remote Control
+11. RFID-Based Access Control System    
+12. Bluetooth-Controlled Home Appliances
+13. Morse Code Transmitter
+14. Mini Weather Station
+15. Soil Moisture Auto-Watering System
+16. Sound Level Meter (Decibel Meter)
 
 # Wireless Communication
 - Bluetooth Communication (HC05/HC06)
@@ -48,7 +47,7 @@ B. Wireless Communication Integration
 We require the following hardware and software to implement the projects.
 We also need a deep understanding of Sensor and their Working.
 ## Hardware Requirements:
-1. Arduino Uno
+1. Arduino Uno / ESP32/ STM32 
 2. BreadBoard
 3. Jumper Wires
 
